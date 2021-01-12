@@ -1,0 +1,2 @@
+# JavaLassonLambda
+trying lambda expressions
