@@ -9,6 +9,10 @@ public class Employee {
         this.salary = salary;
     }
 
+    public Employee(String department) {
+        this.department = department;
+    }
+
     public String getName() {
         return name;
     }
