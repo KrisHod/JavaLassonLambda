@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Main {
     public static void main(String[] args) {
@@ -27,7 +28,18 @@ public class Main {
             employee.setName("Duane");
             employee.setSalary(4000);
         });
-        System.out.println(employeesMarketing);
+        employeeService.changeObject(employeesMarketing.get(1), employee -> {
+            employee.setName("Meredith");
+            employee.setSalary(1000);
+        });
+        //option 1
+        //employeesMarketing.removeIf(employee -> employee.getSalary()<1500);
+
+        //option2
+        Predicate<Employee> pr = employee -> employee.getSalary()<1500;
+        employeesMarketing.removeIf(pr);
+
+        employeesMarketing.forEach(employee -> System.out.println(employee));
     }
 
 }
